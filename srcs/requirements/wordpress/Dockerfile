@@ -1,6 +1,5 @@
 FROM debian:11
 RUN apt update && apt install php-fpm php-mysql curl -y
-EXPOSE 9000
 COPY ./wp-config.php /
 COPY ./tools/install-wp.sh /
 RUN chmod +x /install-wp.sh
