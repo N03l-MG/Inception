@@ -8,9 +8,9 @@ if [! -d "/var/lib/mysql" ]; then
   sleep 5
   
   mysql -u root << EOF
-    CREATE DATABASE IF NOT EXISTS \`${db_name}\`;
-	CREATE USER IF NOT EXISTS '${db_user}'@'%' IDENTIFIED BY '${db_pwd}';
-	GRANT ALL PRIVILIGES ON \`${db_name}\` .* TO '${db_user}'@'%';
+    CREATE DATABASE IF NOT EXISTS \`${DB_NAME}\`;
+	CREATE USER IF NOT EXISTS '${DB_USER}'@'%' IDENTIFIED BY '${DB_PASS}';
+	GRANT ALL PRIVILIGES ON \`${DB_NAME}\` .* TO '${DB_USER}'@'%';
 	FLUSH PRIVILIGES;
 EOF
 
