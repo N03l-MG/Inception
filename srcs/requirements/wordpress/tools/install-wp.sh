@@ -2,15 +2,26 @@
 
 set -e
 
-while ! mysqladmin ping -h mariadb --silent; do
-  sleep 10
-done
+sleep 10
 
 if [ ! -f /var/www/html/wp-config.php ]; then
-  wget https://wordpress.org/latest.zip
-  unzip latest.zip -d /tmp/
-  mv /tmp/wordpress/* /var/www/html/
-  chown -R www-data:www-data /var/www/html
+	wp config create --dbname=$DB_NAME --dbuser=$DB_USER \
+		--dbpass=$DB_PASS --dbhost=mariadb --allow-root  --skip-check
+
+	wp core install --url=$DOMAIN_NAME --title=$WP_TITLE --admin_user=$WP_ADMIN_USR \
+		--admin_password=$WP_ADMIN_PASS --admin_email=$WP_ADMIN_EMAIL \
+		--allow-root
+
+	wp user create $WP_USR $WP_EMAIL --role=author --user_pass=$WP_PASS --allow-root
+
+	wp config  set WP_DEBUG true  --allow-root
+
+	wp config set FORCE_SSL_ADMIN 'false' --allow-root
+
+	wp config  set WP_CACHE 'true' --allow-root
+
+	chmod 777 /var/www/html/wp-content
+
 fi
 
-exec pfp-fpm7.4 -F
+exec php-fpm7.4 -F
