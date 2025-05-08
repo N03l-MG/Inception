@@ -3,19 +3,20 @@ volumes:
     name: wordpress
     driver: local
     driver_opts:
-      device: /home/irisirl/data/wordpress
+      device: /home/nmonzon/data/wordpress
       o: bind
       type: none
   mariadb:
     name: mariadb
     driver: local
     driver_opts:
-      device: /home/irisirl/data/db
+      device: /home/nmonzon/data/db
       o: bind
       type: none
 
 networks:
   inception:
+    name: inception
     driver: bridge
 
 services:
@@ -39,6 +40,8 @@ services:
     container_name: wordpress
     build: ./requirements/wordpress/.
     image: wordpress
+    ports:
+      - "9000:9000"
     depends_on:
       - mariadb
     volumes:

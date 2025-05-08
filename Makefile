@@ -1,6 +1,8 @@
 all: up
 
 up:
+#@mkdir /home/nmonzon/data/wordpress
+# @mkdir /home/nmonzon/data/db
 	@sudo docker compose -f ./srcs/docker-compose.yml up -d
 
 down:
