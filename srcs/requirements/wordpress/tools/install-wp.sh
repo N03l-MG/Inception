@@ -2,6 +2,7 @@
 
 set -e
 
+echo "Waiting 10s.."
 sleep 10
 
 if [ ! -f /var/www/html/wp-config.php ]; then
@@ -24,4 +25,4 @@ if [ ! -f /var/www/html/wp-config.php ]; then
 
 fi
 
-exec php-fpm7.4 -F
+exec "$@"

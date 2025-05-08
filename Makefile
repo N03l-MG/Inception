@@ -1,9 +1,9 @@
 all: up
 
 up:
-	@mkdir /home/irisirl/data
-	@mkdir /home/irisirl/data/wordpress
-	@mkdir /home/irisirl/data/db
+	@mkdir -p ~/data
+	@mkdir -p ~/data/wordpress
+	@mkdir -p ~/data/db
 	@sudo docker compose -f ./srcs/docker-compose.yml up -d
 
 build:
@@ -20,6 +20,6 @@ start:
 
 prune: down
 	@sudo docker system prune -a
-	@sudo rm -rf /home/irisirl/data
+	@sudo rm -rf ~/data
 
 .PHONY: up build down stop start prune
