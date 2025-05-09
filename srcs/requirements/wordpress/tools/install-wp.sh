@@ -23,6 +23,7 @@ if [ ! -f /var/www/html/wp-config.php ]; then
 
 	chmod 777 /var/www/html/wp-content
 
+	wp theme install astra --activate --allow-root
 fi
 
 exec "$@"
