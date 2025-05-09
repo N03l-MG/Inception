@@ -3,7 +3,7 @@ all: up
 up: generate-env
 	@mkdir -p ~/data
 	@mkdir -p ~/data/wordpress
-	@mkdir -p ~/data/db
+	@mkdir -p ~/data/mariadb
 	@sudo docker compose -f ./srcs/docker-compose.yml up -d
 
 generate-env:
