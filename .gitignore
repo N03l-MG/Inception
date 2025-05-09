@@ -1,4 +1,3 @@
 secrets/
+srcs/.env
 *.pdf
-/srcs/requirements/nginx/testing/*
-/srcs/requirements/wordpress/testing/*
