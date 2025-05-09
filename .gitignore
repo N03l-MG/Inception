@@ -1,5 +1,4 @@
-# Uncomment when ready!
-#secrets/
+secrets/
 *.pdf
 /srcs/requirements/nginx/testing/*
 /srcs/requirements/wordpress/testing/*
