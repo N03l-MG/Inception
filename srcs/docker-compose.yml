@@ -3,14 +3,14 @@ volumes:
     name: wordpress
     driver: local
     driver_opts:
-      device: /home/irisirl/data/wordpress
+      device: ${USER_HOME}/data/wordpress
       o: bind
       type: none
   mariadb:
     name: mariadb
     driver: local
     driver_opts:
-      device: /home/irisirl/data/db
+      device: ${USER_HOME}/data/db
       o: bind
       type: none
 

@@ -1,10 +1,14 @@
 all: up
 
-up:
+up: generate-env
 	@mkdir -p ~/data
 	@mkdir -p ~/data/wordpress
 	@mkdir -p ~/data/db
 	@sudo docker compose -f ./srcs/docker-compose.yml up -d
+
+generate-env:
+	@chmod +x ./srcs/tools/generate-env.sh
+	./srcs/tools/generate-env.sh
 
 build:
 	@sudo docker compose -f ./srcs/docker-compose.yml up -d --build
