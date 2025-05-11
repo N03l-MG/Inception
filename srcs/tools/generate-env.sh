@@ -6,6 +6,12 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SECRETS_DIR="$SCRIPT_DIR/../../secrets"
 ENV_FILE="$SCRIPT_DIR/../.env"
 
+if [ ! -d "$SECRETS_DIR" ]; then
+    echo "Error: Secrets directory not found!"
+    echo "Please ensure the secrets directory exists with required credentials"
+    exit 1
+fi
+
 mapfile -t CREDS < "$SECRETS_DIR/credentials.txt"
 
 cat > "$ENV_FILE" << EOF

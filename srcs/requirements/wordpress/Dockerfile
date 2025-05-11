@@ -14,8 +14,6 @@ WORKDIR /var/www/html
 RUN wp core download --allow-root
 RUN mkdir /run/php
 
-EXPOSE 9000
-
 ENTRYPOINT [ "/install-wp.sh" ]
 
 CMD [ "php-fpm7.4", "-F" ]
