@@ -22,8 +22,6 @@ down: stop
 
 prune: down
 	@sudo docker system prune -a
-	@sudo docker volume rm $$(sudo docker volume ls -q) 2>/dev/null || true
-	@sudo docker network rm $$(sudo docker network ls -q) 2>/dev/null || true
 	@sudo rm -rf ~/data
 	@git restore srcs/.env
 
