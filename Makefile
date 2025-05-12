@@ -6,10 +6,10 @@ up: env
 	@mkdir -p ~/data
 	@mkdir -p ~/data/wordpress
 	@mkdir -p ~/data/mariadb
-	@sudo docker compose -f ./srcs/docker-compose.yml up
+	@sudo docker compose -f ./srcs/docker-compose.yml up -d
 
 build:
-	@sudo docker compose -f ./srcs/docker-compose.yml up -d --build
+	@sudo docker compose -f ./srcs/docker-compose.yml up --build
 
 start:
 	@sudo docker compose -f ./srcs/docker-compose.yml start

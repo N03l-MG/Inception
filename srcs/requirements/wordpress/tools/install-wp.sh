@@ -2,8 +2,8 @@
 
 set -e
 
-echo "Waiting 10s.."
-sleep 10
+echo "Waiting 15s.."
+sleep 15
 
 if [ ! -f /var/www/html/wp-config.php ]; then
 	wp config create --dbname=$DB_NAME --dbuser=$DB_USER \
